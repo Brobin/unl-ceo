@@ -12,19 +12,21 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+from ceo.local_settings import *
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@2ao41p-#$w%7y4sf%c=4v7&bl-*e=fn_!tjqno)!w6142wo+w'
+SECRET_KEY = LOCAL_SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = LOCAL_DEBUG
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = LOCAL_TEMPLATE_DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = LOCAL_ALLOWED_HOSTS
 
 
 # Application definition
@@ -63,12 +65,7 @@ WSGI_APPLICATION = 'ceo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+DATABASES = LOCAL_DATABASES
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -87,7 +84,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_ROOT = LOCAL_STATIC_ROOT
+
+STATIC_URL = LOCAL_STATIC_URL
 
 STATICFILES_DIRS = (
     BASE_DIR + '/ceo/static/',
