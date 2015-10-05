@@ -1,0 +1,12 @@
+.large-text {
+    font-size: 12pt;
+}
+footer {
+    margin-top: 40px;
+}
+.navbar-inverse {
+    background-color: #e53c37;
+}
+.navbar, .btn, .container .jumbotron, .panel, .modal-content {
+    border-radius: 0;
+}

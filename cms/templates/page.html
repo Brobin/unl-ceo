@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block content %}
+
+{{ page.content | safe }}
+
+<script>
+{{ page.style | safe }}
+</script>
+
+<style>
+{{ page.script | safe }}
+</style>
+
+{% endblock %}

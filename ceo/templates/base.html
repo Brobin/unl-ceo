@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>{% block title %}{% endblock %} | Husker CEO</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/site.css" %}"/>
+    <script src="{% static "js/jquery.min.js" %}"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                {% load staticfiles %}
+                <a class="navbar-brand" href="/"><span id="brand-name">UNL CEO Club</span></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/blog/" class="large-text">Blog</a></li>
+                    <li><a href="/events/" class="large-text">Events</a></li>
+                </ul> 
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6" style="text-align:left">
+                    <h6>&copy; 2015 Tobin Brown</h6>
+                    <h6>Husker CEO Club</h6>
+                    <h6>University of Nebraska-Lincoln</h6>
+                </div>
+                <div class="col-xs-6" align="right">
+                    <h6>Contact Us</h6>
+                    <h6>Phone: (402) 555-1234</h6>
+                    <h6>Email: unl@unlceo.club</h6>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
