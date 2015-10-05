@@ -3,10 +3,19 @@
 }
 footer {
     margin-top: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color:#eee;
+}
+footer h6 {
+    color: #555;
 }
 .navbar-inverse {
     background-color: #e53c37;
 }
-.navbar, .btn, .container .jumbotron, .panel, .modal-content {
+.navbar, .btn, .container .jumbotron, .panel, .modal-content, .well {
     border-radius: 0;
+}
+.jumbotron {
+    padding: 30px;
 }
