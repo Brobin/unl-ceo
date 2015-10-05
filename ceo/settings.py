@@ -100,4 +100,6 @@ TEMPLATE_DIRS = (
     BASE_DIR + '/events/templates/',
 )
 
+APPEND_SLASH = True
+
 DJANGO_WYSIWYG_FLAVOR = 'tinymce_advanced'
