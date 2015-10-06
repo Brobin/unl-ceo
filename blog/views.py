@@ -5,12 +5,12 @@ from taggit.models import Tag
 
 
 def blog(request):
-    posts = Post.objects.all().order_by('-created')
+    posts = Post.objects.filter(visible=True).order_by('-created')
     return paginate_posts(posts, request)
 
 
 def blog_tag(request, tag):
-    posts = Post.objects.filter(tags__slug__in=[tag]).order_by('-created')
+    posts = Post.objects.filter(tags__slug__in=[tag],visible=True).order_by('-created')
     return paginate_posts(posts, request)
 
 

@@ -12,6 +12,7 @@ class Post(models.Model):
     updated = models.DateTimeField(auto_now=True)
     content = models.TextField()
     author = models.ForeignKey(User)
+    visible = models.BooleanField(default=False)
     tags = TaggableManager()
 
     def __str__(self):
