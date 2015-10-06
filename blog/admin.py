@@ -12,29 +12,12 @@ def make_hidden(modeladmin, request, queryset):
 make_hidden.short_description = 'Make Hidden'
 
 
-class PostVisibleFilter(admin.SimpleListFilter):
-    title = 'Visibility'
-    parameter_name = 'visible'
-
-    def lookups(self, request, model_admin):
-        return (
-            ('Yes', 'Yes'),
-            ('No', 'No'),
-        )
-
-    def queryset(self, request, queryset):
-        if self.value() == 'Yes':
-            return queryset.filter(visible=True)
-        if self.value() == 'No':
-            return queryset.filter(visible=False)
-
-
 class PostAdmin(admin.ModelAdmin):
     change_form_template = 'admin/post_form.html'
     list_display = ['id', 'title', 'get_date', 'author', 'short_preview', 'visible']
     list_display_links = ['id', 'title']
     search_fields = ['title', 'content']
-    list_filter = [PostVisibleFilter]
+    list_filter = ['visible', 'author__username']
     actions = [make_visible, make_hidden]
     list_per_page = 25
 
