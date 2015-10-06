@@ -4,6 +4,10 @@
 
 {% block content %}
 
+<style>
+{{ page.style | safe }}
+</style>
+
 {% if page.slug != "home" %}
 <div class="container">
     <ul class="breadcrumb">
@@ -18,9 +22,5 @@
 <script>
 {{ page.script | safe }}
 </script>
-
-<style>
-{{ page.style | safe }}
-</style>
 
 {% endblock %}
