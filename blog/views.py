@@ -27,5 +27,6 @@ def paginate_posts(posts, request):
 
 
 def blog_post(request, slug):
+    slug = slug.replace('/','')
     post = Post.objects.get(slug=slug)
     return render(request, 'post.html', {'post': post})
