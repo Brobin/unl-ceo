@@ -4,6 +4,15 @@
 
 {% block content %}
 
+{% if page.slug != "home" %}
+<div class="container">
+    <ul class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li><a href="/{{ page.slug }}">{{ page.title }}</a></li> 
+    </ul>
+</div>
+{% endif %}
+
 {{ page.content | safe }}
 
 <script>
