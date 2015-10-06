@@ -30,6 +30,14 @@ class Post(models.Model):
         return preview + '...'
     preview.short_description = 'content'
 
+    def short_preview(self):
+        try:
+            preview = strip_tags(self.content)[:50]
+        except:
+            preview = ''
+        return preview + '...'
+    short_preview.short_description = 'content'
+
     def get_date(self):
         return self.created
     get_date.short_description = 'date'
