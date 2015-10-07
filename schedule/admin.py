@@ -22,7 +22,7 @@ class EventOverFilter(admin.SimpleListFilter):
 
 
 class EventAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'description', 'location', 'start', 'end']
+    list_display = ['id', 'title', 'preview', 'location', 'start', 'end']
     list_display_links = ['id', 'title']
     list_filter = [EventOverFilter]
     search_fields = ['title', 'location', 'description']

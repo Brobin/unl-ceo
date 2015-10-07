@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.template.defaultfilters import date
+from django.utils.html import strip_tags
 
 
 class Event(models.Model):
@@ -24,9 +25,13 @@ class Event(models.Model):
     def hours(self):
         return float(self.seconds) / 3600
 
-    @property
-    def short_description(self):
-        return description[:64]
+    def preview(self):
+        try:
+            preview = strip_tags(self.description)[:64]
+        except:
+            preview = ''
+        return preview + '...'
+    preview.short_description = 'preview'
 
     def __str__(self):
         return '%s: %s - %s' % (
