@@ -13,6 +13,7 @@ make_hidden.short_description = 'Make Hidden'
 
 
 class PostAdmin(admin.ModelAdmin):
+    exclude = ['author']
     change_form_template = 'admin/post_form.html'
     list_display = ['id', 'title', 'get_date', 'author', 'short_preview', 'visible']
     list_display_links = ['id', 'title']
@@ -20,6 +21,11 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ['visible', 'author__username']
     actions = [make_visible, make_hidden]
     list_per_page = 25
+
+    def save_model(self, request, obj, form, change):
+        if not change:
+            obj.author = request.user
+        obj.save()
 
 
 admin.site.register(Post, PostAdmin)
