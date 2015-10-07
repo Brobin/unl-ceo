@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from blog.models import Post
 from taggit.models import Tag
 
@@ -28,5 +28,6 @@ def paginate_posts(posts, request):
 
 def blog_post(request, slug):
     slug = slug.replace('/','')
-    post = Post.objects.get(slug=slug)
+    post = get_object_or_404(Post, slug=slug)
     return render(request, 'post.html', {'post': post})
+
