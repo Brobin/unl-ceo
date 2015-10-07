@@ -47,6 +47,7 @@ INSTALLED_APPS = (
     'cms',
     'blog',
     'schedule',
+    'upload',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -89,6 +90,10 @@ USE_TZ = True
 STATIC_ROOT = LOCAL_STATIC_ROOT
 
 STATIC_URL = LOCAL_STATIC_URL
+
+MEDIA_ROOT = LOCAL_MEDIA_ROOT
+
+MEDIA_URL = LOCAL_MEDIA_URL
 
 STATICFILES_DIRS = (
     BASE_DIR + '/ceo/static/',
