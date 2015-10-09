@@ -45,7 +45,6 @@ INSTALLED_APPS = (
     'tinymce',
     'taggit',
     'cms',
-    'blog',
     'schedule',
     'upload',
 )
@@ -100,7 +99,6 @@ STATICFILES_DIRS = (
 )
 
 TEMPLATE_DIRS = (
-    BASE_DIR + '/blog/templates/',
     BASE_DIR + '/ceo/templates/',
     BASE_DIR + '/cms/templates/',
     BASE_DIR + '/events/templates/',
