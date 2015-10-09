@@ -19,6 +19,6 @@ LOCAL_STATIC_ROOT = './static'
 
 LOCAL_STATIC_URL = '/static/'
 
-LOCAL_MEDIA_ROOT = './media'
+LOCAL_MEDIA_ROOT = './ceo/static/media'
 
 LOCAL_MEDIA_URL = '/media/'
