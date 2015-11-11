@@ -17,14 +17,20 @@
             <div class="panel-body">
                 <table class="table table-striped table-hover ">
                     <tbody>
-                    {% for event in events %}
+                    {% if events %}
+                        {% for event in events %}
+                            <tr>
+                                <th>{{ event.start }}</th>
+                                <th>{{ event.title }}</th>
+                                <th><a href="#" data-toggle="modal" data-target="#{{ event.id }}modal">Details</a></th>
+                            </tr>
+                             {% include "partials/_event_modal.html" %}    
+                        {% endfor %}
+                    {% else %}
                         <tr>
-                            <th>{{ event.start }}</th>
-                            <th>{{ event.title }}</th>
-                            <th><a href="#" data-toggle="modal" data-target="#{{ event.id }}modal">Details</a></th>
+                            <th>No upcoming events!</th>
                         </tr>
-                         {% include "partials/_event_modal.html" %}    
-                    {% endfor %}
+                    {% endif %}
                     </tbody>
                 </table> 
             </div>
