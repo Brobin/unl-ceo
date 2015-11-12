@@ -10,7 +10,7 @@ class EventOverFilter(admin.SimpleListFilter):
 
     def lookups(self, request, model_admin):
         return (
-            ('All', 'All Events'),
+            (None, 'All Events'),
             ('Past', 'Past Event'),
             ('Upcoming', 'Upcoming Event'),
         )
