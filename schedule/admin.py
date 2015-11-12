@@ -5,19 +5,30 @@ from schedule.models import Event
 
 
 class EventOverFilter(admin.SimpleListFilter):
-    title = 'event over'
+    title = 'Time of Event'
     parameter_name = 'over'
 
     def lookups(self, request, model_admin):
         return (
-            ('Yes', 'Yes'),
-            ('No', 'No'),
+            ('All', 'All Events'),
+            ('Past', 'Past Event'),
+            ('Upcoming', 'Upcoming Event'),
         )
 
+    def choices(self, cl):
+        for lookup, title in self.lookup_choices:
+            yield {
+                'selected': self.value() == lookup,
+                'query_string': cl.get_query_string({
+                    self.parameter_name: lookup,
+                }, []),
+                'display': title,
+            }
+
     def queryset(self, request, queryset):
-        if self.value() == 'Yes':
+        if self.value() == 'Past':
             return queryset.filter(end__lt=datetime.datetime.now())
-        if self.value() == 'No':
+        if self.value() == 'Upcoming':
             return queryset.filter(end__gte=datetime.datetime.now())
 
 
